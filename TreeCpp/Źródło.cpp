@@ -354,18 +354,36 @@ void tree::treeToString(item* root, int indent)
 
 int main()
 {
+	cout << "Podaj pierwsza wartosc: " << endl;
 	tree *t = new tree; // nowe drzewo
-	t->add(5); //dodaj do drzewa
-	t->add(2);
-	t->add(6);
-	t->add(3);
-	t->add(8); 
-	t->add(4);
-	t->add(9); 
-	t->treeToString(t->root, 1); //wypisz drzewo
-	cout << "----------------------------------" << endl;
-	t->del(2); //usuñ z drzewa
-	t->treeToString(t->root, 1);
-	getchar();
-	return 0;
+	int x;
+	cin >> x;
+	t->add(x);
+	while (true)
+	{
+		cout << endl;
+		cout << "1. Dodaj do drzewa" << endl;
+		cout << "2. Usun z drzewa" << endl;
+		cout << "3. Wyjscie" << endl;
+		cin >> x;
+		int wartosc;
+		switch (x)
+		{
+		case(1):
+			cout << "Podaj wartosc: ";
+			cin >> wartosc;
+			t->add(wartosc);
+			t->treeToString(t->root, 1);
+			break;
+		case(2):
+			cout << "Podaj wartosc: ";
+			cin >> wartosc;
+			t->del(wartosc);
+			t->treeToString(t->root, 1);
+			break;
+		case(3):
+			return 0;
+		}
+	}
+
 }
